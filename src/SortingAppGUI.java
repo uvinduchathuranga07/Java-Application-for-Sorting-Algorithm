@@ -16,7 +16,7 @@ public class SortingAppGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Top Panel: Upload and Select
+
         JPanel topPanel = new JPanel();
         uploadBtn = new JButton("Upload CSV");
         columnSelector = new JComboBox<>();
@@ -34,7 +34,7 @@ public class SortingAppGUI extends JFrame {
         resultArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
         JScrollPane scrollPane = new JScrollPane(resultArea);
 
-        // Bottom: Status
+
         statusLabel = new JLabel("Status: Waiting for file...");
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         bottomPanel.add(statusLabel);
@@ -43,7 +43,7 @@ public class SortingAppGUI extends JFrame {
         add(scrollPane, BorderLayout.CENTER);
         add(bottomPanel, BorderLayout.SOUTH);
 
-        // Event Listeners
+
         uploadBtn.addActionListener(e -> handleFileUpload());
         sortBtn.addActionListener(e -> runSorting());
     }
@@ -73,13 +73,11 @@ public class SortingAppGUI extends JFrame {
             int colIndex = columnSelector.getSelectedIndex();
             if (colIndex == -1) return;
 
-            // Load data using CsvUtil
+
             double[] rawData = CsvUtil.getColumnData(currentFile, colIndex);
             
             resultArea.setText("Evaluating Algorithms on " + rawData.length + " records...\n\n");
 
-            // CALL MEMBER 2's LOGIC HERE
-            // We pass the data to the Performance Engine
             PerformanceEngine engine = new PerformanceEngine();
             String report = engine.evaluate(rawData);
             
