@@ -28,7 +28,7 @@ public class SortingAppGUI extends JFrame {
         topPanel.add(columnSelector);
         topPanel.add(sortBtn);
 
-        // Center: Results
+
         resultArea = new JTextArea();
         resultArea.setEditable(false);
         resultArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
